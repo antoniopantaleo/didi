@@ -3,20 +3,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "DIDI",
+    name: "Didi",
     platforms: [.macOS(.v10_15)],
     products: [
         .library(
-            name: "DIDI",
-            targets: ["DIDI"]
+            name: "Didi",
+            targets: ["Didi"]
         ),
         .library(
-            name: "DIDI-Swinject",
-            targets: ["DIDI-Swinject"]
+            name: "Didi-Swinject",
+            targets: ["Didi-Swinject"]
         ),
         .library(
-            name: "DIDI-Factory",
-            targets: ["DIDI-Factory"]
+            name: "Didi-Factory",
+            targets: ["Didi-Factory"]
         )
     ],
     dependencies: [
@@ -25,44 +25,44 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "DIDI",
+            name: "Didi",
             swiftSettings: .approachableConcurrency
         ),
         .target(
-            name: "DIDI-Swinject",
+            name: "Didi-Swinject",
             dependencies: [
-                "DIDI",
+                "Didi",
                 .product(name: "Swinject", package: "Swinject")
             ],
             swiftSettings: .approachableConcurrency
         ),
         .target(
-            name: "DIDI-Factory",
+            name: "Didi-Factory",
             dependencies: [
-                "DIDI",
+                "Didi",
                 .product(name: "FactoryKit", package: "Factory"),
             ],
             swiftSettings: .approachableConcurrency
         ),
         .testTarget(
-            name: "DIDITests",
-            dependencies: ["DIDI"],
+            name: "DidiTests",
+            dependencies: ["Didi"],
             swiftSettings: .approachableConcurrency
         ),
         .testTarget(
-            name: "DIDI-SwinjectTests",
+            name: "Didi-SwinjectTests",
             dependencies: [
-                "DIDI",
-                "DIDI-Swinject",
+                "Didi",
+                "Didi-Swinject",
                 .product(name: "Swinject", package: "Swinject")
             ],
             swiftSettings: .approachableConcurrency
         ),
         .testTarget(
-            name: "DIDI-FactoryTests",
+            name: "Didi-FactoryTests",
             dependencies: [
-                "DIDI",
-                "DIDI-Factory",
+                "Didi",
+                "Didi-Factory",
                 .product(name: "Factory", package: "Factory")
             ],
             swiftSettings: .approachableConcurrency

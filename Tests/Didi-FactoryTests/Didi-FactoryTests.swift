@@ -1,26 +1,26 @@
 //
-//  DIDI-FactoryTests.swift
-//  DIDI
+//  Didi-FactoryTests.swift
+//  Didi
 //
 //  Created by Antonio Pantaleo on 26/11/25.
 //
 
 import Testing
-import DIDI
-import DIDI_Factory
+import Didi
+import Didi_Factory
 import Factory
 
 @Suite
-struct DIDIFactoryTests {
+struct DidiFactoryTests {
     @Test func resolvesRegisteredService() throws {
-        let sut = DIDI_Factory.FactoryContainer()
+        let sut = Didi_Factory.FactoryContainer()
         sut.register {
             Int.self ~> 21
             String.self ~> "hello"
         }
         
         #expect(try sut.resolve(Int.self) == 21)
-        @DIDI.Injected(in: sut) var stringValue: String?
+        @Didi.Injected(in: sut) var stringValue: String?
         #expect(stringValue == "hello")
     }
     

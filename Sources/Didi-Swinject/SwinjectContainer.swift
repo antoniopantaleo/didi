@@ -1,15 +1,15 @@
 //
 //  SwinjectContainer.swift
-//  DIDI
+//  Didi
 //
 //  Created by Antonio Pantaleo on 26/11/25.
 //
 
-import DIDI
+import Didi
 import Swinject
 
 /// A `Container` adapter backed by a Swinject `Container`.
-public final class SwinjectContainer: DIDI.Container {
+public final class SwinjectContainer: Didi.Container {
     
     private let container: Swinject.Container
     
@@ -29,9 +29,9 @@ public final class SwinjectContainer: DIDI.Container {
     /// Resolves a service from the underlying container, translating missing services into `ResolutionError`.
     /// - Parameter type: The type to resolve.
     /// - Returns: An instance of the requested type.
-    public func resolve<P>(_ type: P.Type) throws(DIDI.ResolutionError) -> P {
+    public func resolve<P>(_ type: P.Type) throws(Didi.ResolutionError) -> P {
         guard let resolved = container.resolve(type) else {
-            throw DIDI.ResolutionError()
+            throw Didi.ResolutionError()
         }
         return resolved
     }

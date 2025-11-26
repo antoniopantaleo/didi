@@ -1,11 +1,11 @@
 //
 //  FactoryContainer.swift
-//  DIDI
+//  Didi
 //
 //  Created by Antonio Pantaleo on 26/11/25.
 //
 
-import DIDI
+import Didi
 import FactoryKit
 
 // Extend Factory's default container to opt into the Resolving API, which provides
@@ -13,7 +13,7 @@ import FactoryKit
 extension FactoryKit.Container: FactoryKit.Resolving {}
 
 /// A `Container` adapter backed by the Factory dependency injection framework.
-public final class FactoryContainer: DIDI.Container {
+public final class FactoryContainer: Didi.Container {
     
     private let container: any FactoryKit.Resolving
     

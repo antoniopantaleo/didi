@@ -1,6 +1,6 @@
 //
 //  ResolutionError.swift
-//  DIDI
+//  Didi
 //
 //  Created by Antonio Pantaleo on 26/11/25.
 //

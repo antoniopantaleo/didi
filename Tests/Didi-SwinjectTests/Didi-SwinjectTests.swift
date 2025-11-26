@@ -1,18 +1,18 @@
 //
-//  DIDI-SwinjectTests.swift
-//  DIDI
+//  Didi-SwinjectTests.swift
+//  Didi
 //
 //  Created by Antonio Pantaleo on 26/11/25.
 //
 
 import Foundation
 import Testing
-import DIDI
-import DIDI_Swinject
+import Didi
+import Didi_Swinject
 import Swinject
 
 @Suite
-struct DIDISwinjectTests {
+struct DidiSwinjectTests {
     @Test func resolvesRegisteredService() throws {
         let sut = SwinjectContainer()
         sut.register {
@@ -38,7 +38,7 @@ struct DIDISwinjectTests {
     @Test func throwsResolutionErrorWhenServiceMissing() {
         let sut = SwinjectContainer()
         
-        #expect(throws: DIDI.ResolutionError.self) {
+        #expect(throws: Didi.ResolutionError.self) {
             _ = try sut.resolve(String.self)
         }
     }

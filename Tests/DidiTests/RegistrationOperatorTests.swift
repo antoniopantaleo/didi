@@ -1,12 +1,12 @@
 //
 //  RegistrationOperatorTests.swift
-//  DIDI
+//  Didi
 //
 //  Created by Antonio Pantaleo on 26/11/25.
 //
 
 import Testing
-import DIDI
+import Didi
 
 @Suite
 final class RegistrationOperatorTests {

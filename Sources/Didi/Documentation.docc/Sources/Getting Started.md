@@ -4,11 +4,11 @@ Summary
 
 ## Overview
 
-Provide a concrete type that conforms to ``Container``. The `DIDI-Swinject` target already ships an adapter backed by [Swinject](https://github.com/Swinject/Swinject):
+Provide a concrete type that conforms to ``Container``. The `Didi-Swinject` target already ships an adapter backed by [Swinject](https://github.com/Swinject/Swinject):
 
 ```swift
-import DIDI
-import DIDI_Swinject
+import Didi
+import Didi_Swinject
 
 let container = SwinjectContainer()
 ```

@@ -1,12 +1,12 @@
 //
 //  MockContainer.swift
-//  DIDI
+//  Didi
 //
 //  Created by Antonio Pantaleo on 26/11/25.
 //
 
 import Foundation
-import DIDI
+import Didi
 
 final class MockContainer: Container {
     private var factories: [ObjectIdentifier: () -> Any] = [:]
