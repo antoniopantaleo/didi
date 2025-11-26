@@ -10,7 +10,8 @@ public protocol Container {
     /// Resolves an instance of the requested type or throws when it is not registered.
     /// - Parameter type: The service type to resolve.
     /// - Returns: An instance of the requested type.
-    func resolve<P>(_ type: P.Type) throws(ResolutionError) -> P
+    /// - Throws: ResolutionError
+    func resolve<P>(_ type: P.Type) throws(ResolutionError<P>) -> P
     
     /// Stores a registration, enabling later resolution.
     /// - Parameter component: A closure that returns a registration tuple for the service.

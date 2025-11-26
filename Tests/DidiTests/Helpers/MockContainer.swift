@@ -12,9 +12,9 @@ final class MockContainer: Container {
     private var factories: [ObjectIdentifier: () -> Any] = [:]
     var registeredTypes: [ObjectIdentifier] = []
     
-    func resolve<P>(_ type: P.Type) throws(ResolutionError) -> P {
+    func resolve<P>(_ type: P.Type) throws(ResolutionError<P>) -> P {
         guard let factory = factories[ObjectIdentifier(type)], let value = factory() as? P else {
-            throw ResolutionError()
+            throw ResolutionError(type: type)
         }
         return value
     }

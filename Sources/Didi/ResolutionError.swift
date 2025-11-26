@@ -8,10 +8,15 @@
 import Foundation
 
 /// An error thrown when a dependency cannot be resolved.
-public struct ResolutionError: LocalizedError {
-    public init() {}
+public struct ResolutionError<P>: LocalizedError {
+    
+    private let type: P.Type
+    
+    public init(type: P.Type) {
+        self.type = type
+    }
     
     public var errorDescription: String? {
-        "The requested dependency could not be resolved."
+        "No value of type \(type) could be resolved."
     }
 }

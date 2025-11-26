@@ -38,7 +38,7 @@ struct DidiSwinjectTests {
     @Test func throwsResolutionErrorWhenServiceMissing() {
         let sut = SwinjectContainer()
         
-        #expect(throws: Didi.ResolutionError.self) {
+        #expect(throws: ResolutionError<String>.self) {
             _ = try sut.resolve(String.self)
         }
     }

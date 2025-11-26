@@ -34,9 +34,9 @@ public final class FactoryContainer: Didi.Container {
     /// Resolves a service from the underlying Factory container, translating missing services into `ResolutionError`.
     /// - Parameter type: The type to resolve.
     /// - Returns: An instance of the requested type.
-    public func resolve<P>(_ type: P.Type) throws(ResolutionError) -> P {
+    public func resolve<P>(_ type: P.Type) throws(ResolutionError<P>) -> P {
         guard let resolved = container.resolve(type) else {
-            throw ResolutionError()
+            throw ResolutionError(type: type)
         }
         return resolved
     }

@@ -35,7 +35,7 @@ struct ContainerExtensionTests {
     @Test func resolveThrowsWhenServiceMissing() {
         let container = MockContainer()
         
-        #expect(throws: ResolutionError.self) {
+        #expect(throws: ResolutionError<Bool>.self) {
             _ = try container.resolve(Bool.self)
         }
     }
