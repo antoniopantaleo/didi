@@ -1,26 +1,34 @@
 // swift-tools-version: 6.2
-// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "DIDI",
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "DIDI",
             targets: ["DIDI"]
         ),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "DIDI"
+            name: "DIDI",
+            swiftSettings: .approachableConcurrency
         ),
         .testTarget(
             name: "DIDITests",
-            dependencies: ["DIDI"]
+            dependencies: ["DIDI"],
+            swiftSettings: .approachableConcurrency
         ),
     ]
 )
+
+fileprivate extension [SwiftSetting] {
+    static var approachableConcurrency: [SwiftSetting] {
+        [
+            .defaultIsolation(MainActor.self),
+            .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
+            .enableUpcomingFeature("InferIsolatedConformances")
+        ]
+    }
+}
