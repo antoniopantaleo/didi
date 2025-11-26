@@ -102,8 +102,8 @@ print(greeting ?? "Missing")
 ## Backends
 
 `Didi` comes with a set of pre-implemented adapters (or backends) based on popular existing frameworks like:
-- [Swinject](https://github.com/Swinject/Swinject#)
-- [Factory](https://github.com/hmlongco/Factory)
+- [Swinject](https://github.com/antoniopantaleo/didi-swinject.git)
+- [Factory](https://github.com/antoniopantaleo/didi-factory.git)
 
 ## Contributing
 Issues and pull requests are welcome. Feel free to contribute!
