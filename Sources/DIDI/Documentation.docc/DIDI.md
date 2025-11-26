@@ -28,3 +28,4 @@ Use the ``Container`` protocol to describe how dependencies are registered and r
 ### Adapters
 
 - ``SwinjectContainer``
+- ``FactoryContainer``

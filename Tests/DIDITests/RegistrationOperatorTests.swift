@@ -9,7 +9,8 @@ import Testing
 import DIDI
 
 @Suite
-struct RegistrationOperatorTests {
+final class RegistrationOperatorTests {
+    
     @Test func usesFactoryClosure() {
         var callCount = 0
         let registration = Int.self ~> {

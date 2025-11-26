@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "DIDI",
+    platforms: [.macOS(.v10_15)],
     products: [
         .library(
             name: "DIDI",
@@ -12,10 +13,15 @@ let package = Package(
         .library(
             name: "DIDI-Swinject",
             targets: ["DIDI-Swinject"]
+        ),
+        .library(
+            name: "DIDI-Factory",
+            targets: ["DIDI-Factory"]
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.0.0")
+        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.0.0"),
+        .package(url: "https://github.com/hmlongco/Factory.git", from: "2.0.0")
     ],
     targets: [
         .target(
@@ -30,6 +36,14 @@ let package = Package(
             ],
             swiftSettings: .approachableConcurrency
         ),
+        .target(
+            name: "DIDI-Factory",
+            dependencies: [
+                "DIDI",
+                .product(name: "FactoryKit", package: "Factory"),
+            ],
+            swiftSettings: .approachableConcurrency
+        ),
         .testTarget(
             name: "DIDITests",
             dependencies: ["DIDI"],
@@ -41,6 +55,15 @@ let package = Package(
                 "DIDI",
                 "DIDI-Swinject",
                 .product(name: "Swinject", package: "Swinject")
+            ],
+            swiftSettings: .approachableConcurrency
+        ),
+        .testTarget(
+            name: "DIDI-FactoryTests",
+            dependencies: [
+                "DIDI",
+                "DIDI-Factory",
+                .product(name: "Factory", package: "Factory")
             ],
             swiftSettings: .approachableConcurrency
         ),
