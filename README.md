@@ -3,19 +3,19 @@
 [![Swift 6.2](https://img.shields.io/badge/Swift-6.2-orange.svg)](https://swift.org)
 [![SwiftPM](https://img.shields.io/badge/SwiftPM-compatible-6DB33F.svg)](https://www.swift.org/package-manager/)
 
-![Platform macOS](https://img.shields.io/badge/platform-macOS%2010.15%2B-lightgrey.svg)
-![Platform iOS](https://img.shields.io/badge/platform-iOS%2013%2B-lightgrey.svg)
-![Platform tvOS](https://img.shields.io/badge/platform-tvOS%2013%2B-lightgrey.svg)
-![Platform watchOS](https://img.shields.io/badge/platform-watchOS%208%2B-lightgrey.svg)
+![Platform macOS](https://img.shields.io/badge/platform-macOS%2010.13%2B-lightgrey.svg)
+![Platform iOS](https://img.shields.io/badge/platform-iOS%2012%2B-lightgrey.svg)
+![Platform tvOS](https://img.shields.io/badge/platform-tvOS%2012%2B-lightgrey.svg)
+![Platform watchOS](https://img.shields.io/badge/platform-watchOS%202%2B-lightgrey.svg)
 ![Platform visionOS](https://img.shields.io/badge/platform-visionOS%201%2B-lightgrey.svg)
 
-`Didi` (pronounced _/diː diː/_ or _dee dee_) is a dependency injection abstracion layer, written with dependency inversion in mind.
+`didi` (pronounced _/diː diː/_ or _dee dee_) is a dependency injection abstracion layer, written with dependency inversion in mind.
 
 It leverages powerful Swift features like _result builders_, _property wrappers_, _operators_ and _parameter packs_ to offer a robust, friendly and compile-time safe API.
 
 > **Discalimer**
 > 
-> `Didi` is NOT a dependency injection framework
+> `didi` is NOT a dependency injection framework
 
 ## Architecture
 
@@ -42,11 +42,11 @@ sequenceDiagram
 
 ### Swift Package Manager
 
-Add `Didi` to your dependencies:
+Add `didi` to your dependencies:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/antoniopantaleo/Didi.git", branch: "develop")
+    .package(url: "https://github.com/antoniopantaleo/didi.git", branch: "develop")
 ]
 ```
 
@@ -56,14 +56,14 @@ Then depend on the products you need:
 .target(
     name: "YourApp",
     dependencies: [
-        .product(name: "Didi", package: "Didi")
+        .product(name: "Didi", package: "didi")
     ]
 )
 ```
 
 ## Quick start
 
-Here's a brief look on how `Didi` API looks like:
+Here's a brief look on how `didi` API looks like:
 
 ### Registration
 
@@ -101,7 +101,7 @@ print(greeting ?? "Missing")
 
 ## Backends
 
-`Didi` comes with a set of pre-implemented adapters (or backends) based on popular existing frameworks like:
+`didi` comes with a set of pre-implemented adapters (or backends) based on popular existing frameworks like:
 - [Swinject](https://github.com/antoniopantaleo/didi-swinject.git)
 - [Factory](https://github.com/antoniopantaleo/didi-factory.git)
 
