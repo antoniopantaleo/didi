@@ -6,6 +6,18 @@
 //
 
 /// Result builder that aggregates multiple registrations into a tuple.
+///
+/// ResultBuilder's expressive syntax makes easy to create a registration DSL that can leverage the `~>` operator
+///
+/// > Example: Making registrations through ``RegistrationBuilder``
+/// > ```swift
+/// > container.register {
+/// >   Int.self ~> 50
+/// >   HTTPClient.self ~> URLSessionHTTPClient(session: .shared)
+/// >   // ...
+/// > }
+///
+///
 @resultBuilder
 public enum RegistrationBuilder {
     
