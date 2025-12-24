@@ -6,6 +6,10 @@
 //
 
 /// A lightweight abstraction describing how registrations are stored and resolved.
+///
+/// Types conforming to ``Container`` are responsible for storing service registrations
+/// and providing instances of those services upon request.
+/// > Note: This protocol is reference-type only due to potential internal state management requirements that dependency injection containers may have.
 public protocol Container: AnyObject {
     /// Resolves an instance of the requested type or throws when it is not registered.
     /// - Parameter type: The service type to resolve.
