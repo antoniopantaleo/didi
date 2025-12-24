@@ -6,7 +6,7 @@
 //
 
 /// A lightweight abstraction describing how registrations are stored and resolved.
-public protocol Container {
+public protocol Container: AnyObject {
     /// Resolves an instance of the requested type or throws when it is not registered.
     /// - Parameter type: The service type to resolve.
     /// - Returns: An instance of the requested type.
