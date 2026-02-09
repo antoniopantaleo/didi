@@ -1,10 +1,15 @@
 # ``Didi``
 
+@Metadata {
+    @PageColor(orange)
+    @PageImage(purpose: icon, source: "logo.png", alt: "logo")
+}
+
 Dependency Inversion-first Dependency Injection framework
 
 ## Overview
 
-`didi` is a lightweight dependency injection layer for Swift that puts the Dependency Inversion Principle first. Rather than being a full-blown service locator, it focuses on a small set of abstractions that you can back with your favorite DI engine or a home-grown container.
+`didi` is a lightweight dependency injection abstraction layer for Swift that puts the Dependency Inversion Principle first. Rather than being a full-blown service locator, it focuses on a small set of abstractions that you can back with your favorite DI engine or a home-grown container.
 
 `didi` leans on expressive Swift features such as result builders, property wrappers, operators, and parameter packs to provide a type-safe API while keeping call sites small and readable.
 
@@ -14,8 +19,13 @@ Dependency Inversion-first Dependency Injection framework
 2. Register your services using the `~>` operator inside a ``RegistrationBuilder`` block:
     ```swift
     container.register {
+        Int.self ~> 2
         HTTPClient.self ~> URLSessionHTTPClient(session: .shared)
-        String.self ~> "Hello, Didi"
+        String.self ~> {
+            var result = "Hello"
+            result += ", Didi"
+            return result
+        }
     }
     ```
 3. Resolve values where you need them, either directly or via the ``Injected`` property wrapper:
@@ -30,7 +40,7 @@ Registrations are checked at compile time, so mismatched types are caught early,
 
 ## Available Adapters
 
-Currently `didi` natively support these adapters:
+Currently `didi` natively support the following adapters:
 
 - [DidiSwinject](https://github.com/antoniopantaleo/didi-swinject), based on [Swinject](https://github.com/Swinject/Swinject)
 - [DidiFactory](https://github.com/antoniopantaleo/didi-factory), based on [Factory](https://github.com/hmlongco/Factory)
@@ -41,6 +51,7 @@ Currently `didi` natively support these adapters:
 
 - <doc:Dependency-Inversion>
 - ``Registration``
+- ``Factory``
 - ``Container``
 - ``ResolutionError``
 

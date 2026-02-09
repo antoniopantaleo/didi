@@ -35,8 +35,9 @@ struct ContainerExtensionTests {
     @Test func resolveThrowsWhenServiceMissing() {
         let container = MockContainer()
         
-        #expect(throws: ResolutionError<Bool>.self) {
+        let error = #expect(throws: ResolutionError<Bool>.self) {
             _ = try container.resolve(Bool.self)
         }
+        #expect(error?.localizedDescription == "No value of type Bool could be resolved.")
     }
 }
