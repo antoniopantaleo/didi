@@ -9,7 +9,7 @@ import Testing
 import Didi
 
 @Suite
-final class RegistrationOperatorTests {
+struct RegistrationOperatorTests {
     
     @Test func usesFactoryClosure() {
         var callCount = 0
