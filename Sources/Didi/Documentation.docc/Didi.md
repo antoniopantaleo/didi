@@ -1,5 +1,9 @@
 # ``Didi``
 
+@Metadata {
+    @PageImage(purpose: icon, source: "logo.png", alt: "logo")
+}
+
 Dependency Inversion-first Dependency Injection framework
 
 ## Overview
