@@ -1,5 +1,7 @@
 # Didi
 
+<img align="right" height="350" alt="image-no-bg" src="Sources/Didi/Documentation.docc/Resources/logo.png" />
+
 [![Swift 6.2](https://img.shields.io/badge/Swift-6.2-orange.svg)](https://swift.org)
 [![SwiftPM](https://img.shields.io/badge/SwiftPM-compatible-6DB33F.svg)](https://www.swift.org/package-manager/)
 
@@ -13,7 +15,7 @@
 
 It leverages powerful Swift features like _result builders_, _property wrappers_, _operators_ and _parameter packs_ to offer a robust, friendly and compile-time safe API.
 
-> **Discalimer**
+> [!IMPORTANT] 
 > 
 > `didi` is NOT a dependency injection framework
 
@@ -46,7 +48,7 @@ Add `didi` to your dependencies:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/antoniopantaleo/didi.git", from: "2.0.0")
+    .package(url: "https://github.com/antoniopantaleo/didi.git", from: "3.0.0")
 ]
 ```
 
@@ -75,11 +77,19 @@ import Didi
 let container: any Container = MyContainer()
 
 container.register {
-    HTTPClient.self ~> URLSessionHTTPClient(session: .shared) // You don't need to write commas 
-    String.self ~> "Hello, Didi"
+    Int.self ~> 2
+    HTTPClient.self ~> URLSessionHTTPClient(session: .shared)
+    String.self ~> {
+        var result = "Hello"
+        result += ", Didi"
+        return result
+    }
     // ...
 }
 ```
+
+> [!NOTE]
+> You do not need to write commas within the registration closure
 
 Registration offers compile-time safety thanks to Swift's powerful generics system. 
 Wrong registration like the following will be clearly reported by the compiler:

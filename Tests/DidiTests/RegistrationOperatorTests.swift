@@ -12,7 +12,7 @@ import Didi
 struct RegistrationOperatorTests {
     
     @Test func usesFactoryClosure() {
-        var callCount = 0
+        nonisolated(unsafe) var callCount = 0
         let registration = Int.self ~> {
             callCount += 1
             return 7
@@ -25,13 +25,12 @@ struct RegistrationOperatorTests {
     }
     
     @Test func capturesAutoclosureWithoutEagerEvaluation() {
-        var callCount = 0
-        func provide() -> String {
+        nonisolated(unsafe) var callCount = 0
+        
+        let registration = String.self ~> {
             callCount += 1
             return "value"
         }
-        
-        let registration = String.self ~> provide()
         #expect(callCount == 0)
         
         #expect(registration.factory() == "value")

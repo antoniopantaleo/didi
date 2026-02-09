@@ -5,8 +5,13 @@
 //  Created by Antonio Pantaleo on 26/11/25.
 //
 
+/// A type that describes an instance creation
+///
+/// The creation closure is `@Sendable`
+public typealias Factory<P> = @Sendable () -> P
+
 /// A type that describes a registration entry in a ``Container``
-public typealias Registration<P> = (type: P.Type, factory: () -> P)
+public typealias Registration<P> = (type: P.Type, factory: Factory<P>)
 
 infix operator ~>
 
@@ -15,7 +20,7 @@ infix operator ~>
 ///   - type: The service type to register.
 ///   - factory: A closure that produces new instances of the service.
 /// - Returns: A ``Registration`` that can be stored in a ``Container``.
-public func ~> <P>(type: P.Type, factory: @escaping () -> P) -> Registration<P> {
+public func ~> <P>(type: P.Type, factory: @escaping Factory<P>) -> Registration<P> {
     return (type, factory)
 }
 
@@ -24,6 +29,6 @@ public func ~> <P>(type: P.Type, factory: @escaping () -> P) -> Registration<P> 
 ///   - type: The service type to register.
 ///   - factory: An autoclosure producing a service instance.
 /// - Returns: A ``Registration`` that can be stored in a ``Container``.
-public func ~> <P>(type: P.Type, factory: @escaping @autoclosure () -> P) -> Registration<P> {
+public func ~> <P>(type: P.Type, factory: @escaping @autoclosure Factory<P>) -> Registration<P> {
     return (type, factory)
 }
